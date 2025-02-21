@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Форма заказа</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Изменить заказ{% else %}Новый заказ{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="{% url 'order_list' %}">Вернуться к списку заказов</a>
+</body>
+</html>
